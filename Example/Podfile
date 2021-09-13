@@ -1,0 +1,13 @@
+use_frameworks!
+
+platform :ios, '9.0'
+
+target 'MiLibreria_Example' do
+  pod 'MiLibreria', :path => '../'
+
+  target 'MiLibreria_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
