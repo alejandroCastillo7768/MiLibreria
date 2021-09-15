@@ -1,5 +1,4 @@
 import XCTest
-import MiLibreria
 
 class Tests: XCTestCase {
     

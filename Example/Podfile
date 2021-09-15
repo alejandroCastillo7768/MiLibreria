@@ -1,13 +1,48 @@
+require_relative '../node_modules/react-native/scripts/react_native_pods'
+require_relative '../node_modules/@react-native-community/cli-platform-ios/native_modules'
+
 use_frameworks!
 
-platform :ios, '9.0'
+platform :ios, '11.0'
 
 target 'MiLibreria_Example' do
   pod 'MiLibreria', :path => '../'
 
+  config = use_native_modules!
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # to enable hermes on iOS, change `false` to `true` and then install pods
+    :hermes_enabled => false
+  )
+
   target 'MiLibreria_Tests' do
     inherit! :search_paths
 
-    
+
   end
 end
+
+
+#platform :ios, '11.0'
+#
+#node_modules_path = '../node_modules'
+#react_path = File.join(node_modules_path, 'react-native')
+#yoga_path = File.join(react_path, 'ReactCommon/yoga')
+#folly_spec_path = File.join(react_path, 'third-party-podspecs/RCT-Folly.podspec')
+#glog_spec_path = File.join(react_path, 'third-party-podspecs/glog.podspec')
+#double_conversion_spec_path = File.join(react_path, 'third-party-podspecs/DoubleConversion.podspec')
+#
+#plugin 'cocoapods-fix-react-native'
+#
+#target 'MiLibreria_Example' do
+#  pod 'MiLibreria', path: '../'
+#
+#  # We want extra developer support in React inside this app
+#  pod 'React', path: react_path
+#
+#  # We're letting CP know where it can find these Podspecs
+#  pod 'Yoga', path: yoga_path
+#  pod 'RCT-Folly', podspec: folly_spec_path
+#  pod 'DoubleConversion', podspec: double_conversion_spec_path
+#  pod 'glog', podspec: glog_spec_path
+#end

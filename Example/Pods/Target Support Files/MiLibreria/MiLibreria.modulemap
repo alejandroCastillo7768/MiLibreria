@@ -1,0 +1,6 @@
+framework module MiLibreria {
+  umbrella header "MiLibreria-umbrella.h"
+
+  export *
+  module * { export * }
+}

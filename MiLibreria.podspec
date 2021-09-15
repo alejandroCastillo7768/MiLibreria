@@ -5,12 +5,25 @@
 # Any lines starting with a # are optional, but their use is encouraged
 # To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
 #
+#require 'json'
+#
+## Returns the version number for a package.json file
+#pkg_version = lambda do |dir_from_root = '', version = 'version'|
+#  path = File.join(__dir__, dir_from_root, 'package.json')
+#  JSON.parse(File.read(path))[version]
+#end
+#
+## Let the main package.json decide the version number for the pod
+#gitdawg_version = pkg_version.call
+## Use the same RN version that the JS tools use
+#react_native_version = pkg_version.call('node_modules/react-native')
+#
 
 Pod::Spec.new do |s|
   s.name             = 'MiLibreria'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of MiLibreria.'
-
+  s.version          = '1.0.0'
+  s.summary          = 'A brief description here to my library.'
+  s.swift_version    = '5.0'
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
 #   * Try to keep it short, snappy and to the point.
@@ -28,9 +41,20 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/alejandroCastillo7768/MiLibreria.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '11.0'
 
-  s.source_files = 'MiLibreria/Classes/**/*'
+  s.source_files = 'Pod/Classes/**/*'
+  
+  s.dependency 'React'
+  #
+#  s.dependency 'React/Core'
+#  s.dependency 'React/CxxBridge'
+#  s.dependency 'React/RCTAnimation'
+#  s.dependency 'React/RCTImage'
+#  s.dependency 'React/RCTLinkingIOS'
+#  s.dependency 'React/RCTNetwork'
+#  s.dependency 'React/RCTText'
+  #
   
   # s.resource_bundles = {
   #   'MiLibreria' => ['MiLibreria/Assets/*.png']

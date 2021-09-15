@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import React
+import MiLibreria
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var bridge: RCTBridge?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+//        let jsCodeLocation = Bundle.main.url(forResource: "MiLibreria", withExtension: "js")
+//        bridge = RCTBridge(bundleURL: jsCodeLocation, moduleProvider: nil, launchOptions: launchOptions)
+        
+        let InitialVC = UINavigationController(rootViewController: InitialViewController(nibName: "InitialViewController", bundle: Bundle(for: InitialViewController.self)))
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = InitialVC
+        window?.makeKeyAndVisible()
         return true
     }
 
